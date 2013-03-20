@@ -30,7 +30,6 @@
 	    response.object = <item> 
                              <url>{request.url}</url> 
                              <symbol>{symbol}</symbol>
-                             <data>optionsPath</data>
                            </item>; 
 ]]></execute>
 </select>
