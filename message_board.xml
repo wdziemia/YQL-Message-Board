@@ -11,7 +11,7 @@
   	<url>http://finance.yahoo.com/mb/{symbol}/</url>
   </urls>
   <inputs>
-  	<key id='symbol' type='xs:string' paramType='path' required="true" />
+  	<key id='symbol' type='xs:string' paramType='variable' required="true" />
   </inputs>
   <execute>
     <![CDATA[
@@ -20,9 +20,13 @@
 	}
 	    
 	try {  
-		var response = request.get().response;
-	    	var reponse_list = y.xpath(response, "//div[@id='mb-tab-content']");
-   		response.object = reponse_list[0];
+		var url = "http://finance.yahoo.com/mb/" + symbol;
+	    	var query = y.rest( url );	
+	    	var data = query.accept( "text/html" ).get().response;
+	    	
+	    	response.object = 	<item>
+	    					<data>data</data>
+    					</item>
 	} catch(err) {  
    		response.object = {'result':'failure', 'error': err};  
 	} 
