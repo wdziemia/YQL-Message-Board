@@ -40,11 +40,8 @@
 		
 		var messages = <messages symbol={symbol}> <message>YAY</message> </messages>
 		
-		if ( size > 0 ){
 		
-		}
-		
-		response.object. = messages;
+		response.object. = <messages> <size>{size}</size> </messages>;
 		
 	} catch(err) {  
    		response.object = {'result':'failure', 'error': err};  
