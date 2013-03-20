@@ -6,7 +6,7 @@
   </meta>
 
 <bindings>
-  <select itemPath="messageboard.messages" produces="XML">
+  <select itemPath="" produces="XML">
   <urls>
     <url>http://finance.yahoo.com/mb/{symbol}</url>
   </urls>
