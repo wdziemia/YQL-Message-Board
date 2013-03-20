@@ -46,8 +46,8 @@
 				var reply_last_user_link = tr.td[3].cite.a.@href.text();
 				
 				replies.appendChild(<count>{reply_count}</count>);
-				replies.appendChild(<last_date>{reply_last_user}</last_date>);
-				replies.appendChild(<last_user>{reply_last_date}</last_user>);
+				replies.appendChild(<last_date>{reply_last_date}</last_date>);
+				replies.appendChild(<last_user>{reply_last_user}</last_user>);
 				replies.appendChild(<last_user_link>{reply_last_user_link}</last_user_link>);
 				
 				message.appendChild(<title>{title}</title>);
