@@ -23,7 +23,7 @@
 
 
 	    //build the query string
-	    var StockquoteURL = "@url"; 
+	    var StockquoteURL = "http://finance.yahoo.com/q/op?s="+symbol; 
 	   
 	    var contractList = <option symbol={symbol}></option>;
 			var contractElem = <contract>{StockquoteURL}</contract>;
