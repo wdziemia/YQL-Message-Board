@@ -8,7 +8,7 @@
 <bindings>
   <select itemPath="" produces="XML">
   <urls>
-  	<url>http://finance.yahoo.com/q/op?s={symbol}</url>
+  	<url>http://finance.yahoo.com/mb/{symbol}/</url>
   </urls>
   <inputs>
   	<key id='symbol' type='xs:string' paramType='path' required="true" />
@@ -21,12 +21,16 @@
 		    return true;
 	    }
 	
-
-	    
-
+	 	var yQuery = y.rest( {request.url} );	
+	    var data = yQuery.accept( "text/html" ).get().response;
+		var optionsPath = y.xpath(data, "//table[@id='mb-ajxp-list mb-sorted-by-la']/tr");
+		
+		getMessages();
+		
 	    response.object = <item> 
                              <url>{request.url}</url> 
                              <symbol>{symbol}</symbol>
+                             <data>optionsPath</data>
                            </item>; 
 ]]></execute>
 </select>
