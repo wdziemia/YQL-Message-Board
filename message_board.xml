@@ -17,10 +17,9 @@
     <![CDATA[
 	function getMessages() {
 		var messages = <messages></messages>;
-		var results = path;
-		
-		for ( var tr in results) {
-			messages.appendChild( <message> {result} </message> );
+	
+		for ( var tr in path) {
+			messages.appendChild( <message> {tr} </message> );
 		}
 		
 		response.object.appendChild( messages );
