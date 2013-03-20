@@ -22,7 +22,7 @@
 		var last = <popularity></popularity>;
 		
 		for each ( var result in results ) {
-			var title = y.xpath(result, "//td[@class='mb-title mb-first']/a/content")
+			var title = y.xpath(result, "//td[@class='mb-title mb-first']/a/content");
 			
     		    	message.appendChild (<title>{title}</title>);
     		    
@@ -38,9 +38,8 @@
 	    	var path = y.xpath(data, "//table/tbody[@class='mb-ajxp-list mb-sorted-by-la']");
 		var size = path.*.length();
 		
-		var messages = <messages symbol={symbol}> <message>YAY</message> </messages>
-		
-		
+		var messages = <messages symbol={symbol}> <message>YAY</message> </messages>;
+
 		response.object. = <messages> <size>{size}</size> </messages>;
 		
 	} catch(err) {  
