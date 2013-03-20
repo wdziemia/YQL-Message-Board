@@ -17,16 +17,25 @@
     <![CDATA[
 	function getMessages() {
 		var messages = <messages></messages>;
-	
+		
 		for each ( var tr in path) {
 			var message = <message></message>;
+			var published = <published></published>;
 			try {
 				var title = tr.td[0].p.a.text();
 				var link = tr.td[0].p.a.@href.text();
 				
+				var cite_time = tr.td[0].cite.span.text();
+				var cite_user = tr.td[0].cite.a.text()
+				var cite_user_link = tr.td[0].cite.a.@href.text();
+				
+				published.appendChild(<time>{cite_time}</time>);
+				published.appendChild(<user>{cite_user}</user>);
+				published.appendChild(<user_link>{cite_user_link}</user_link>);
 				
 				message.appendChild(<title>{title}</title>);
 				message.appendChild(<link>{link}</link>);
+				message.appendChild({published});
 				
 				messages.appendChild(message);
 			} catch (err) { }
