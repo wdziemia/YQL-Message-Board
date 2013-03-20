@@ -23,9 +23,12 @@
 		var url = "http://finance.yahoo.com/mb/" + symbol;
 	    	var query = y.rest( url );	
 	    	var data = query.accept( "text/html" ).get().response;
-	    	
+	    
+	    	var path = y.xpath(data, "//table/tbody[@class='mb-ajxp-list mb-sorted-by-la']/tr");
+		var elements = path.*.length();
+		
 	    	response.object = 	<item>
-	    					<data>{data}</data>
+	    					<size>{elements}</size>
     					</item>
 	} catch(err) {  
    		response.object = {'result':'failure', 'error': err};  
