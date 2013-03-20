@@ -19,7 +19,7 @@
 		var messages = <messages></messages>;
 		var results = path;
 		
-		for ( var result in results) {
+		for ( var tr in results) {
 			messages.appendChild( <message> {result} </message> );
 		}
 		
@@ -35,7 +35,7 @@
 	    	var path = y.xpath(data, "//table/tbody[@class='mb-ajxp-list mb-sorted-by-la']/tr");
 		var size = path.*.length();
 		
-	    	response.object = <messages symbol= {symbol} size={size}></messages>;
+	    	response.object = <result symbol= {symbol} size={size}></result>;
     		
     		if (size > 0){
     			getMessages();
