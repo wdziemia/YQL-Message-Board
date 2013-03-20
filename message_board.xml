@@ -2,7 +2,7 @@
   <meta>
     <author>Wojciech Dziemianczyk</author>
     <description>Yahoo Message Board</description>
-    <sampleQuery>select * from {table} where a='cat' and b='dog';</sampleQuery>
+    <sampleQuery>SELECT * FROM {table} WHERE symbol='GOOG';</sampleQuery>
   </meta>
 
 <bindings>
@@ -11,8 +11,7 @@
   	<url>http://finance.yahoo.com/q/op?s={a}</url>
   </urls>
   <inputs>
-  	<key id='a' type='xs:string' paramType='path' required="true" />  
-    <key id='b' type='xs:string' paramType='variable' required="true" />  
+  	<key id='symbol' type='xs:string' paramType='path' required="true" />
   </inputs>
   <execute>
     <![CDATA[
@@ -27,8 +26,7 @@
 
 	    response.object = <item> 
                              <url>{request.url}</url> 
-                             <a>{a}</a> 
-                             <b>{b}</b> 
+                             <a>{a}</a>
                            </item>; 
 ]]></execute>
 </select>
