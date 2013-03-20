@@ -16,6 +16,13 @@
   <execute>
     <![CDATA[
 	function getMessages() {
+		var results = path;
+		
+		if ( results.*.length() == 0 ) {
+			return false;
+		}
+		
+		response.object.appendChild( contractElem );
 		return true;
 	}
 	    
@@ -27,10 +34,9 @@
 	    	var path = y.xpath(data, "//table/tbody[@class='mb-ajxp-list mb-sorted-by-la']");
 		var elements = path.*.length();
 		
-	    	response.object = 	<item>
-	    					<size>{elements}</size>
-	    					<data>{path}</data>
-    					</item>
+		response.object.appendChild(<size>{elements}</size>);
+		response.object.appendChild(<data>{path}</data>);
+		
 	} catch(err) {  
    		response.object = {'result':'failure', 'error': err};  
 	} 
