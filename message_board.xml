@@ -21,10 +21,9 @@
 		    return true;
 	    }
 	    
-	    
 	    try {  
 	    	var response = request.get().response;
-	    	var reponse_list = y.xpath(response, "/html/body/");
+	    	var reponse_list = y.xpath(response, "//tbody[@id='mb-ajxp-list mb-sorted-by-la']/tr");
    			response.object = reponse_list;
 		} catch(err) {  
    			response.object = {'result':'failure', 'error': err};  
