@@ -18,12 +18,11 @@
 	function getMessages() {
 		var messages = <messages></messages>;
 	
-	
-		for ( var i in path) {
+		for each ( var tr in path) {
 			var message = <message></message>;
 			try {
-				var title = y.xpath(path[i], "//td[@class='mb-title mb-first']/p/a");		
-				var publisher  = i.td[1].a.content;
+				var title = tr.td[0].p.a.text();
+				var publisher  = "publisher";
 				
 				message.appendChild(<title>{title}</title>);
 				message.appendChild(<publisher>{publisher}</publisher>);
