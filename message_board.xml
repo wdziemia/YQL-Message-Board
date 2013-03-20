@@ -11,7 +11,7 @@
     <url>http://finance.yahoo.com/mb/{symbol}</url>
   </urls>
   <inputs>
-    
+    <key id="symbol" type="xs:string" paramType="variable" required="true"/>
   </inputs>
   <execute>
     <![CDATA[
@@ -48,7 +48,7 @@
 
 
 	    //build the query string
-	    var StockquoteURL = "http://finance.yahoo.com/q/op?s=GOOG";
+	    var StockquoteURL = "http://finance.yahoo.com/q/op?s=" + symbol;
 
 	    //get thy results
 	    var yQuery = y.rest( StockquoteURL );	
