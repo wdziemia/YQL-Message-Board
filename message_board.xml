@@ -16,7 +16,7 @@
   <execute>
     <![CDATA[
 	function getMessages() {
-		
+		return true;
 	}
 	    
 	try {  
@@ -26,12 +26,11 @@
 	    
 	    	var path = y.xpath(data, "//table/tbody[@class='mb-ajxp-list mb-sorted-by-la']");
 		var elements = path.*.length();
-     
--        	response.object =   	<item>
--                				<size>{elements}</size>
--                				<data>{path}</data>
--              				</item>;
 		
+	    	response.object = 	<item>
+	    					<size>{elements}</size>
+	    					<data>{path}</data>
+    					</item>
 	} catch(err) {  
    		response.object = {'result':'failure', 'error': err};  
 	} 
