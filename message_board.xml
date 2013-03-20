@@ -24,8 +24,7 @@
 	    
 	    try {  
 	    	var returned_response = request.get().response;
-   			var message_path = y.xpath(returned_response, "//table[@id='mb-ajxp-list mb-sorted-by-la']/tr");
-   			response.object = message_path;
+   			response.object = returned_response;
 		} catch(err) {  
    			response.object = {'result':'failure', 'error': err};  
 		} 
