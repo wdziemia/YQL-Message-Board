@@ -24,7 +24,7 @@
 	    	var query = y.rest( url );	
 	    	var data = query.accept( "text/html" ).get().response;
 	    
-	    	var path = y.xpath(data, "//table/tbody[@class='mb-ajxp-list mb-sorted-by-la']/tr");
+	    	var path = y.xpath(data, "//table/tbody[@class='mb-ajxp-list mb-sorted-by-la']");
 		var elements = path.*.length();
 		
 	    	response.object = 	<item>
