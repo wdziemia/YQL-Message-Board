@@ -8,7 +8,7 @@
 <bindings>
   <select itemPath="" produces="XML">
   <urls>
-    <url>http://finance.yahoo.com/mb/{symbol}</url>
+  	<url>http://finance.yahoo.com/q/op?s={symbol}</url>
   </urls>
   <inputs>
     <key id="symbol" type="xs:string" paramType="variable" required="true"/>
@@ -48,7 +48,7 @@
 
 
 	    //build the query string
-	    var StockquoteURL = "http://finance.yahoo.com/q/op?s=" + symbol;
+	    var StockquoteURL = @url; "http://finance.yahoo.com/q/op?s=" + symbol;
 
 	    //get thy results
 	    var yQuery = y.rest( StockquoteURL );	
