@@ -22,10 +22,11 @@
 			var message = <message></message>;
 			try {
 				var title = tr.td[0].p.a.text();
-				var publisher  = "publisher";
+				var link = tr.td[0].p.a.@href.text();
+				
 				
 				message.appendChild(<title>{title}</title>);
-				message.appendChild(<publisher>{publisher}</publisher>);
+				message.appendChild(<link>{link}</link>);
 				
 				messages.appendChild(message);
 			} catch (err) { }
