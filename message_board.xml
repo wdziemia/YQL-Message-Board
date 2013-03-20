@@ -16,18 +16,7 @@
   <execute>
     <![CDATA[
 	function getMessages() {
-		var results = path;
-		var message = <message></message>;
-		var popularity = <popularity></popularity>;
-		var last = <popularity></popularity>;
 		
-		for each ( var result in results ) {
-			var title = y.xpath(result, "//td[@class='mb-title mb-first']/a/content");
-			
-    		    	message.appendChild (<title>{title}</title>);
-    		    
-    		    	messages.appendChild( message );
-    		}	
 	}
 	    
 	try {  
@@ -36,11 +25,12 @@
 	    	var data = query.accept( "text/html" ).get().response;
 	    
 	    	var path = y.xpath(data, "//table/tbody[@class='mb-ajxp-list mb-sorted-by-la']");
-		var size = path.*.length();
-		
-		var messages = <messages symbol={symbol}> <message>YAY</message> </messages>;
-
-		response.object. = <messages> <size>{size}</size> </messages>;
+		var elements = path.*.length();
+     
+-        	response.object =   	<item>
+-                				<size>{elements}</size>
+-                				<data>{path}</data>
+-              				</item>;
 		
 	} catch(err) {  
    		response.object = {'result':'failure', 'error': err};  
