@@ -15,19 +15,17 @@
   </inputs>
   <execute>
     <![CDATA[
-
-	    function getMessages() {
-		   
-		    return true;
-	    }
+	function getMessages() {
+		return true;
+	}
 	    
-	    try {  
-	    	var response = request.get().response;
-	    	var reponse_list = y.xpath(response, "//tbody[@id='mb-ajxp-list mb-sorted-by-la']/tr");
-   			response.object = reponse_list;
-		} catch(err) {  
-   			response.object = {'result':'failure', 'error': err};  
-		} 
+	try {  
+		var response = request.get().response;
+	    	var reponse_list = y.xpath(response, "//tbody[@class='mb-ajxp-list mb-sorted-by-la']");
+   		response.object = reponse_list;
+	} catch(err) {  
+   		response.object = {'result':'failure', 'error': err};  
+	} 
 	
 	  
 ]]></execute>
