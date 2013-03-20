@@ -18,11 +18,10 @@
     	function getNextPage(){
     		var output="";
 	    	try {
-	    		var page_resutls = y.xpath(data, "//ul[@class='future']/li");
+	    		var page_results = y.xpath(data, "//ul[@class='future']/li");
 	    		for each ( var li in page_results ) {
-	    			return li.a.@href.text();
 	    			if ( li.a.span.text() == "Next") {
-	    				return output;
+	    				return li.a.@href.text();
 	    			}
 	    		}
     		} catch (err) {
