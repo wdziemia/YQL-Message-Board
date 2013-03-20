@@ -61,7 +61,7 @@
 
 	    getContracts();
 
-	    response.object = contractList;
+	    response.object = StockquoteURL;
 ]]></execute>
 </select>
 </bindings>
