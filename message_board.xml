@@ -21,8 +21,6 @@
 		    return true;
 	    }
 	
-	 	var yQuery = y.rest( {request.url} );	
-	    var data = yQuery.accept( "text/html" ).get().response;
 		
 	
 		
