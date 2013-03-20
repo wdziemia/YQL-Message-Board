@@ -16,6 +16,7 @@
   <execute>
     <![CDATA[
 	function getMessages() {
+		response.object.appendChild( <message> title </message> );
 		return true;
 	}
 	    
@@ -25,11 +26,14 @@
 	    	var data = query.accept( "text/html" ).get().response;
 	    
 	    	var path = y.xpath(data, "//table/tbody[@class='mb-ajxp-list mb-sorted-by-la']");
-		var elements = path.*.length();
+		var size = path.*.length();
 		
 	    	response.object = <messages symbol= {symbol} size={size}></messages>;
-    					
-    		response.object.appendChild( <message> title </message> );
+    		
+    		if (size > 0){
+    			getMessages();
+    		}
+    		
 	} catch(err) {  
    		response.object = {'result':'failure', 'error': err};  
 	} 
