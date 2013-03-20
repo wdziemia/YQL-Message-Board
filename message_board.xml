@@ -14,6 +14,22 @@
   </inputs>
   <execute>
     <![CDATA[
+    
+    	function getNextPage(){
+    		var output="";
+	    	try {
+	    		var page_resutls = y.xpath(data, "//ul[@class='future']/li");
+	    		for each ( var li in page_results ) {
+	    			var output = li.a.@href.text();
+	    			if ( li.a.span.text() == "Next") {
+	    				return output;
+	    			}
+	    		}
+    		} catch (err) {}
+		return output;
+	}
+    
+    	
 	function getMessages() {
 		var messages = <messages></messages>;
 		
@@ -77,6 +93,8 @@
 	    
 	    	var path = y.xpath(data, "//table/tbody[@class='mb-ajxp-list mb-sorted-by-la']/tr");
 		var size = path.length();
+		
+		var next_page = getNextPage();
 		
 	    	response.object = <result symbol= {symbol} size={size} base_url={base_url}></result>;
     		
