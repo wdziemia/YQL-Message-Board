@@ -38,7 +38,7 @@
 	    	var path = y.xpath(data, "//table/tbody[@class='mb-ajxp-list mb-sorted-by-la']");
 		var size = path.*.length();
 		
-		var messages = <messages symbol={symbol} size={size}></messages>
+		var messages = <messages symbol={symbol}> <message>YAY</message> </messages>
 		
 		if ( size > 0 ){
 		
