@@ -28,7 +28,7 @@
 	    response.object = <item> 
                              <url>{request.url}</url> 
                              <symbol>{symbol}</symbol>
-                             <data>message_path</data>
+                             <data>{message_path}</data>
                            </item>; 
 ]]></execute>
 </select>
