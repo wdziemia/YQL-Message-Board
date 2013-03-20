@@ -21,7 +21,7 @@
 	    
 	try {  
 		var response = request.get().response;
-	    	var reponse_list = y.xpath(response, "//tbody[@class='mb-ajxp-list mb-sorted-by-la']");
+	    	var reponse_list = y.xpath(response, "//div[@id='mb-tab-content']");
    		response.object = reponse_list;
 	} catch(err) {  
    		response.object = {'result':'failure', 'error': err};  
