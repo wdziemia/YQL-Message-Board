@@ -25,7 +25,7 @@
 	    	var data = query.accept( "text/html" ).get().response;
 	    	
 	    	response.object = 	<item>
-	    					<data>data</data>
+	    					<data>{data}</data>
     					</item>
 	} catch(err) {  
    		response.object = {'result':'failure', 'error': err};  
