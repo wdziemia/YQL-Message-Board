@@ -65,14 +65,15 @@
 	}
 	    
 	try {  
-		var url = "http://finance.yahoo.com/mb/" + symbol;
+		var base_url = "http://finance.yahoo.com";
+		var url = base_url + "/mb/" + symbol;
 	    	var query = y.rest( url );	
 	    	var data = query.accept( "text/html" ).get().response;
 	    
 	    	var path = y.xpath(data, "//table/tbody[@class='mb-ajxp-list mb-sorted-by-la']/tr");
 		var size = path.length();
 		
-	    	response.object = <result symbol= {symbol} size={size} base_url={url}></result>;
+	    	response.object = <result symbol= {symbol} size={size} base_url={base_url}></result>;
     		
     		if (size > 0){
     			getMessages();
