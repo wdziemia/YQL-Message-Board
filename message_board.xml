@@ -17,9 +17,15 @@
     <![CDATA[
 	function getMessages() {
 		var messages = <messages></messages>;
+		var message = <message></message>;
 	
 		for ( var tr in path) {
-			messages.appendChild( <message> {tr} </message> );
+			try {
+				var title = y.xpath(tr, "//td[@class='mb-title mb-first']/p/a/content")
+				message.appendChild(<title>{title}</title>);
+			
+				messages.appendChild(message);
+			} catch (err) { }
 		}
 		
 		response.object.appendChild( messages );
