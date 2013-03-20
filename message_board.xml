@@ -16,7 +16,14 @@
   <execute>
     <![CDATA[
 	function getMessages() {
-		response.object.appendChild( <message> title </message> );
+		var messages = <messages></messages>;
+		var results = path;
+		
+		for ( var result in results) {
+			messages.appendChild( <message> title </message> );
+		}
+		
+		response.object.appendChild( messages );
 		return true;
 	}
 	    
