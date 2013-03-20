@@ -24,7 +24,7 @@
 	    
 	    try {  
 	    	var returned_response = request.get().response;
-	    	var reponse_list = y.xpath(data, "//table[@id='mb-ajxp-list mb-sorted-by-la']");
+	    	var reponse_list = y.xpath(returned_response, "//table[@id='mb-ajxp-list mb-sorted-by-la']");
    			response.object = reponse_list;
 		} catch(err) {  
    			response.object = {'result':'failure', 'error': err};  
