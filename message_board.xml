@@ -27,10 +27,7 @@
 	    	var path = y.xpath(data, "//table/tbody[@class='mb-ajxp-list mb-sorted-by-la']");
 		var elements = path.*.length();
 		
-	    	response.object = <messages symbol= {symbol}>
-	    					<size>{elements}</size>
-	    					<data>{path}</data>
-    					</messages>;
+	    	response.object = <messages symbol= {symbol} size={size}></messages>;
     					
     		response.object.appendChild( <message> title </message> );
 	} catch(err) {  
