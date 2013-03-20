@@ -35,7 +35,7 @@
 				
 				message.appendChild(<title>{title}</title>);
 				message.appendChild(<link>{link}</link>);
-				message.appendChild({published});
+				message.appendChild(published);
 				
 				messages.appendChild(message);
 			} catch (err) { }
