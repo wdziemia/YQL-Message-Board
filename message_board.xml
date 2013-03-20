@@ -8,7 +8,7 @@
 <bindings>
   <select itemPath="" produces="XML">
   <urls>
-  	<url>http://finance.yahoo.com/q/op?s={a}</url>
+  	<url>http://finance.yahoo.com/q/op?s={symbol}</url>
   </urls>
   <inputs>
   	<key id='symbol' type='xs:string' paramType='path' required="true" />
@@ -26,7 +26,7 @@
 
 	    response.object = <item> 
                              <url>{request.url}</url> 
-                             <a>{a}</a>
+                             <symbol>{symbol}</symbol>
                            </item>; 
 ]]></execute>
 </select>
