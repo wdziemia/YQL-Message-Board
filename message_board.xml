@@ -41,7 +41,7 @@
 		var messages = <messages symbol={symbol} size={size}></messages>
 		
 		if ( size > 0 ){
-			getMessages();	
+		
 		}
 		
 		response.object. = messages;
