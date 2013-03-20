@@ -29,6 +29,7 @@
 		
 	    	response.object = 	<item>
 	    					<size>{elements}</size>
+	    					<data>{path}</data>
     					</item>
 	} catch(err) {  
    		response.object = {'result':'failure', 'error': err};  
