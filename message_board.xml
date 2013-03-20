@@ -32,10 +32,10 @@
     
     	
 	function getMessages() {
-		var messages = <messages></messages>;
+		var messages = <message_board></message_board>;
 		
 		for each ( var tr in path) {
-			var message = <message></message>;
+			var message = <messages></messages>;
 			var published = <published></published>;
 			var popularity = <popularity></popularity>;
 			var replies = <replies></replies>;
