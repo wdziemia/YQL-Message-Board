@@ -20,7 +20,7 @@
 		var results = path;
 		
 		for ( var result in results) {
-			messages.appendChild( <message> title </message> );
+			messages.appendChild( <message> {result} </message> );
 		}
 		
 		response.object.appendChild( messages );
@@ -32,7 +32,7 @@
 	    	var query = y.rest( url );	
 	    	var data = query.accept( "text/html" ).get().response;
 	    
-	    	var path = y.xpath(data, "//table/tbody[@class='mb-ajxp-list mb-sorted-by-la']");
+	    	var path = y.xpath(data, "//table/tbody[@class='mb-ajxp-list mb-sorted-by-la']/tr");
 		var size = path.*.length();
 		
 	    	response.object = <messages symbol= {symbol} size={size}></messages>;
