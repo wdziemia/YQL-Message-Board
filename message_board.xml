@@ -26,8 +26,8 @@
 	    var StockquoteURL = "http://finance.yahoo.com/q/op?s="+symbol; 
 	   
 	    var contractList = <option symbol={symbol}></option>;
-			var contractElem = <contract>{StockquoteURL}</contract>;
-	    getContracts();
+		var contractElem = <contract>{StockquoteURL}</contract>;
+	    
 
 	    response.object = StockquoteURL;
 ]]></execute>
