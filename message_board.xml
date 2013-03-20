@@ -2,16 +2,17 @@
   <meta>
     <author>Wojciech Dziemianczyk</author>
     <description>Yahoo Message Board</description>
-    <sampleQuery>SELECT * FROM {table} WHERE symbol='GOOG'</sampleQuery>
+    <sampleQuery>select * from {table} where a='cat' and b='dog';</sampleQuery>
   </meta>
 
 <bindings>
   <select itemPath="" produces="XML">
   <urls>
-  	<url>http://finance.yahoo.com/q/op?s={symbol}</url>
+  	<url>http://finance.yahoo.com/q/op?s={a}</url>
   </urls>
   <inputs>
-    <key id="symbol" type="xs:string" paramType="variable" required="true"/>
+  	<key id='a' type='xs:string' paramType='path' required="true" />  
+    <key id='b' type='xs:string' paramType='variable' required="true" />  
   </inputs>
   <execute>
     <![CDATA[
@@ -20,16 +21,15 @@
 		   
 		    return true;
 	    }
+	
 
-
-	    //build the query string
-	    var StockquoteURL = {request.url}; 
-	   
-	    var contractList = <option symbol={symbol}></option>;
-		var contractElem = <contract>{StockquoteURL}</contract>;
 	    
 
-	    response.object = StockquoteURL;
+	    response.object = <item> 
+                             <url>{request.url}</url> 
+                             <a>{a}</a> 
+                             <b>{b}</b> 
+                           </item>; 
 ]]></execute>
 </select>
 </bindings>
