@@ -96,7 +96,7 @@
 		
 		var next_page = getNextPage();
 		
-	    	response.object = <result symbol= {symbol} size={size} base_url={base_url}></result>;
+	    	response.object = <result symbol= {symbol} size={size} base_url={base_url} next_page={next_page}></result>;
     		
     		if (size > 0){
     			getMessages();
