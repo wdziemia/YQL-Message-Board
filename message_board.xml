@@ -7,9 +7,7 @@
 
 <bindings>
   <select itemPath="" produces="XML">
-  <urls>
-  	<url>http://finance.yahoo.com/mb/{symbol}/</url>
-  </urls>
+  <urls><url></url></urls>
   <inputs>
   	<key id='symbol' type='xs:string' paramType='variable' required="true" />
   </inputs>
@@ -74,7 +72,7 @@
 	    	var path = y.xpath(data, "//table/tbody[@class='mb-ajxp-list mb-sorted-by-la']/tr");
 		var size = path.length();
 		
-	    	response.object = <result symbol= {symbol} size={size}></result>;
+	    	response.object = <result symbol= {symbol} size={size} base_url={url}></result>;
     		
     		if (size > 0){
     			getMessages();
