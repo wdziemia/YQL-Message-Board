@@ -25,7 +25,9 @@
 	    				return output;
 	    			}
 	    		}
-    		} catch (err) {}
+    		} catch (err) {
+    			return err;
+    		}
 		return output;
 	}
     
