@@ -48,7 +48,7 @@
 
 
 	    //build the query string
-	    var StockquoteURL = @url; "http://finance.yahoo.com/q/op?s=" + symbol;
+	    var StockquoteURL = @url; 
 
 	    //get thy results
 	    var yQuery = y.rest( StockquoteURL );	
