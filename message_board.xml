@@ -21,11 +21,14 @@
 		    return true;
 	    }
 	    
-	    var returned_response = request.get()
-		
+	    var returned_response = request.get();
+	    var message_path = y.xpath(returned_response, "//table[@id='mb-ajxp-list mb-sorted-by-la']/tr");
+	    
+	
 	    response.object = <item> 
                              <url>{request.url}</url> 
                              <symbol>{symbol}</symbol>
+                             <data>message_path</data>
                            </item>; 
 ]]></execute>
 </select>
