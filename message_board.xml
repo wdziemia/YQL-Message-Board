@@ -19,9 +19,9 @@
 		var messages = <messages></messages>;
 		var message = <message></message>;
 	
-		for ( var tr in path) {
+		for ( var i in path) {
 			try {
-				var title = y.xpath(tr.toString(), "//td[@class='mb-title mb-first']/p/a")
+				var title = y.xpath(path[i], "//td[@class='mb-title mb-first']/p/a")
 				message.appendChild(<title>{title}</title>);
 			
 				messages.appendChild(message);
