@@ -10,6 +10,7 @@
   <urls><url></url></urls>
   <inputs>
   	<key id='symbol' type='xs:string' paramType='variable' required="true" />
+  	<key id='page' type='xs:string' paramType='variable' required="false" />
   </inputs>
   <execute>
     <![CDATA[
@@ -67,6 +68,10 @@
 	try {  
 		var base_url = "http://finance.yahoo.com";
 		var url = base_url + "/mb/" + symbol;
+		if ( page != null ) {
+			url = base_url + page;
+		} 
+		
 	    	var query = y.rest( url );	
 	    	var data = query.accept( "text/html" ).get().response;
 	    
