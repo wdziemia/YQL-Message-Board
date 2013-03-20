@@ -6,9 +6,9 @@
   </meta>
 
 <bindings>
-  <select itemPath="" produces="XML">
+  <select itemPath="messageboard.messages" produces="XML">
   <urls>
-    <url></url>
+    <url>http://finance.yahoo.com/mb/{symbol}</url>
   </urls>
   <inputs>
     <key id="symbol" type="xs:string" paramType="variable" required="true"/>
