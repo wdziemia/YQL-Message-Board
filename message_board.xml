@@ -17,13 +17,17 @@
     <![CDATA[
 	function getMessages() {
 		var messages = <messages></messages>;
-		var message = <message></message>;
+	
 	
 		for ( var i in path) {
+			var message = <message></message>;
 			try {
-				var title = y.xpath(path[i], "//td[@class='mb-title mb-first']/p/a")
+				var title = y.xpath(path[i], "//td[@class='mb-title mb-first']/p/a");		
+				var publisher  = i.td[1].a.content;
+				
 				message.appendChild(<title>{title}</title>);
-			
+				message.appendChild(<publisher>{publisher}</publisher>);
+				
 				messages.appendChild(message);
 			} catch (err) { }
 		}
