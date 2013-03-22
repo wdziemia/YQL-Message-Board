@@ -1,0 +1,110 @@
+<table xmlns="http://query.yahooapis.com/v1/schema/table.xsd">
+  <meta>
+    <author>Wojciech Dziemianczyk</author>
+    <description>Yahoo Message Board - Thread View</description>
+    <sampleQuery>SELECT * FROM {table} WHERE thread='/mbview/threadview/?&bn=12b865d6-8061-30c4-86c1-40adf7076aee&tid=1363896844750-41df2c4b-b658-4bdb-bc69-0cf4c7556e5c&tls=la%2Cd%2C0%2C3';</sampleQuery>
+  </meta>
+
+<bindings>
+  <select itemPath="" produces="XML">
+  <urls><url></url></urls>
+  <inputs>
+    <key id='thread' type='xs:string' paramType='variable' required="true" />
+  </inputs>
+  <execute>
+    <![CDATA[
+    
+    	function getNextPage(){
+    		var output="";
+	    	try {
+	    		var page_results = y.xpath(data, "//ul[@class='future']/li");
+	    		for each ( var li in page_results ) {
+	    			if ( li.a.span.text() == "Next") {
+	    				return li.a.@href.text();
+	    			}
+	    		}
+    		} catch (err) {
+    			return err;
+    		}
+		return output;
+	}
+    
+    	
+	function getMessages() {
+		var messages = <message_board></message_board>;
+		
+		for each ( var tr in path) {
+			var message = <messages></messages>;
+			var published = <published></published>;
+			var popularity = <popularity></popularity>;
+			var replies = <replies></replies>;
+			
+			try {
+				var title = tr.td[0].p.a.text();
+				var link = tr.td[0].p.a.@href.text();
+				
+				var cite_time = tr.td[0].cite.span.text();
+				var cite_user = tr.td[0].cite.a.text()
+				var cite_user_link = tr.td[0].cite.a.@href.text();
+				
+				published.appendChild(<time>{cite_time}</time>);
+				published.appendChild(<user>{cite_user}</user>);
+				published.appendChild(<user_link>{cite_user_link}</user_link>);
+				
+				var pop_up = tr.td[1].span.text();
+				var pop_down = tr.td[1].p.span.text();
+				
+				popularity.appendChild(<up>{pop_up}</up>);
+				popularity.appendChild(<down>{pop_down}</down>);
+				
+				var reply_count = tr.td[2].span.text();
+				var reply_last_date = tr.td[3].span.text();
+				var reply_last_user = tr.td[3].cite.a.text();
+				var reply_last_user_link = tr.td[3].cite.a.@href.text();
+				
+				replies.appendChild(<count>{reply_count}</count>);
+				replies.appendChild(<last_date>{reply_last_date}</last_date>);
+				replies.appendChild(<last_user>{reply_last_user}</last_user>);
+				replies.appendChild(<last_user_link>{reply_last_user_link}</last_user_link>);
+				
+				message.appendChild(<title>{title}</title>);
+				message.appendChild(<link>{link}</link>);
+				message.appendChild(published);
+				message.appendChild(popularity);
+				message.appendChild(replies);
+				
+				messages.appendChild(message);
+			} catch (err) { }
+		}
+		
+		response.object.appendChild( messages );
+		return true;
+	}
+	    
+	try {  
+		var base_url = "http://finance.yahoo.com";
+		var url = base_url + thread;
+		if ( page != null ) {
+			url = base_url + page;
+		} 
+		
+	    	var query = y.rest( url );	
+	    	var data = query.accept( "text/html" ).get().response;
+	    
+	    	var path = y.xpath(data, "//li[@class='mb-item']");
+		var size = path.length();
+		
+		var next_page = "getNextPage()";
+		
+	    	response.object = <result size={size} next_page={next_page}>{path}</result>; ;
+    	
+    		
+	} catch(err) {  
+   		response.object = {'result':'failure', 'error': err};  
+	} 
+	
+	  
+]]></execute>
+</select>
+</bindings>
+</table>
