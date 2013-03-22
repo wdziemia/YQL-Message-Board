@@ -2,7 +2,7 @@
   <meta>
     <author>Wojciech Dziemianczyk</author>
     <description>Yahoo Message Board - Thread View</description>
-    <sampleQuery>SELECT * FROM {table} WHERE thread='/mbview/threadview/?&amp;bn=12b865d6-8061-30c4-86c1-40adf7076aee&amp;tid=1363896844750-41df2c4b-b658-4bdb-bc69-0cf4c7556e5c&amp;tls=la%2Cd%2C0%2C3';</sampleQuery>
+    <sampleQuery>SELECT * FROM {table} WHERE thread='/mbview/threadview/?&amp;bn=12b865d6-8061-30c4-86c1-40adf7076aee&amp;tid=1363551452427-b9ea6d29-72d8-4a47-ab24-e79fdf81c9ff';</sampleQuery>
   </meta>
 
 <bindings>
