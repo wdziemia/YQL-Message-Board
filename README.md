@@ -1,7 +1,5 @@
 Yahoo Message Boards Feed
 ====================================
-
-<h2>What is this?</h2>
 This is a YQL community table to create feed of any existing Yahoo Message Board webpage. There are two commands that are allowed within the YQL console. The most basic returns the first page of results, the seconds allows for request for any following pages;
 
 
